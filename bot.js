@@ -1984,6 +1984,20 @@ var commands = {
             });
         }
     },
+    // obnoxious clappifier
+    "clap": {
+        process: function(bot, msg, suffix) {  
+			if (!suffix)
+			{
+				bot.sendMessage(msg.channel, "Nothing to clap home about.")
+			}
+			else
+			{
+				var message = msg.cleanContent.substring(getPrefix(msg.channel.server).length+4).trim().stripDangerous();
+            	bot.sendMessage(msg.channel, message.split(" ").map(function (v){return v.toUpperCase() + " 👏"}).join(" "));
+			}
+        }
+    },
     // Random fact about cats
     "catfact": {
         usage: "[<count>]",
